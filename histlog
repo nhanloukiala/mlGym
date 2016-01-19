@@ -1,0 +1,1755 @@
+ 1/1: ?
+ 1/2: %magic
+ 1/3: x = 1
+ 1/4: x
+ 1/5: import numpy
+ 1/6: import numpy as n
+ 2/1: %hist
+ 2/2: %logstart
+ 2/3:
+x = [[
+
+
+
+]
+
+
+]
+ 2/4: import numpy as np
+ 2/5: x = np.nrarray(3,2)
+ 2/6: %hist
+ 2/7: x = np.ndarray(3,2)
+ 2/8: x = np.ndarray([3,2])
+ 2/9: x
+2/10: mean = np.mean(x)
+2/11: mean
+2/12: np.mean(x[:,1])
+2/13: x
+2/14: x[:,1]
+2/15: x = np.array([[4,2,0.6] , [4.2, 2.1, 0.5], [3.9, 2.0, 0.58], [4.3, 2.1, 0.62] , [4.1, 2.2, 0.63]])
+2/16: x
+2/17: x[1, 2] = 0.59
+2/18: x
+2/19: np.mean(x[:,:])
+2/20: np.mean(x)
+2/21: np.mean(x, axis=[1,2,3])
+2/22: np.mean(x, axis=(1,2,3))
+2/23: np.mean(x, axis=1)
+2/24: np.mean(x, axis=0)
+2/25: import itertools
+2/26: combinations = itertools.combinations(2,5)
+2/27: combinations = itertools.combinations(2,[i for i in range(10)])
+2/28: combinations = itertools.combinations(2,[i for i in range(1,10)])
+2/29: combinations = itertools.combinations([i for i in range(1,10)], 2)
+2/30: combinations
+2/31: combinations[]0
+2/32: combinations[0]
+2/33: i for i in range(1,10)
+2/34: [i for i in range(1,10)]
+2/35: [i for i in range(10)]
+2/36:
+for pairs in combinations:
+    print pairs
+2/37: x
+2/38: mean
+2/39: m = numpy.mean(x, axis = 0)
+2/40: m = np.mean(x, axis = 0)
+2/41: m
+2/42:
+for i in x:
+    
+    
+    
+    
+    q
+2/43: cov = np.zeros(len(x[0]), len(x[0]))
+2/44: x[0]
+2/45: len(x[0])
+2/46: cov = np.zeros((len(x[0]), len(x[0])))
+2/47: cov
+2/48:
+for i in x:
+    temp = (i - m)*(i - m).T
+    cov += temp
+2/49: cov
+2/50: cov /= len(x)
+2/51: cov
+2/52: cov *= len(x)
+2/53: cov /= (len(x) - 1)
+2/54: cov
+2/55: x
+2/56: m
+2/57:
+for i in x:
+    print i
+2/58:
+for i in x:
+    print (i -m).T
+2/59:
+for i in x:
+    print (i-m)[x.newaxis].T
+2/60:
+for i in x:
+    x = (i-m)[x.newaxis]
+2/61:
+for i in x:
+    temp = (i-m)[np.newaxis]
+    print temp.T
+2/62:
+for i in x:
+    print (i - m)[np.newaxis].T
+2/63:
+for i in x:
+    temp1 = (i - m)[np.newaxis].T
+    temp2 = (i-m)[np.newaxis]
+    print temp1*temp2
+2/64: cov = np.zeros(3,3,)
+2/65: cov = np.zeros((3,3))
+2/66:
+for i in x:
+    temp1 = (i - m)[np.newaxis].T
+    temp2 = (i -m)[np.newaxis]
+    cov += temp1*temp2
+2/67: cov /= (len(x) - 1)
+2/68: cov
+2/69: from scipy import linalg as LA
+2/70: from scipy import linalg as la
+2/71: m,n = x.shape
+2/72: x
+2/73: y = x - np.mean(x, axis = 0)
+2/74: y
+2/75: r = np.cov(y, rowvar= False)
+2/76: r
+2/77: r = np.cov(y, rowvar= True)
+2/78: r
+2/79: r = np.cov(y, rowvar= False)
+2/80: r
+2/81: evals, evecs = LA.eigh(R)
+2/82: evals, evecs = la.eigh(r)
+2/83: evals
+2/84: evecs
+2/85: idx = np.argsort(evals)[::-1]
+2/86: idx
+2/87: idx = np.argsort(evals)[]
+2/88: idx = np.argsort(evals)[::]
+2/89: idx
+2/90: idx = np.argsort(evals)[::-1]
+2/91: idx = np.argsort(evals)[::-1]
+2/92: idx = np.argsort(evals)[-1]
+2/93: idx
+2/94: idx = np.argsort(evals)[::-1]
+2/95: evals
+2/96: idx = np.argsort(evals)[::]
+2/97: idx
+2/98: idx = np.argsort(evals)[::-1]
+2/99: idx = np.argsort(evals)[::-1]
+2/100: idx
+2/101: evecs = evecs[:, idx]
+2/102: evecs
+2/103: evals = evals[idx]
+2/104: evecs = evecs[:, :2]
+2/105: evecs
+2/106: evecs = evecs[:, :1]
+2/107: evecs
+2/108: evecs?
+2/109: %quickref
+2/110: %quickref
+2/111: _
+2/112: __
+2/113: ____
+2/114: ___
+2/115: ___
+2/116: _102
+2/117: evecs = _102
+2/118: evecs
+2/119: evecs = evecs[:, :1]
+2/120: np.dot(evecs.T, x.T).T
+2/121: evecs
+2/122: evecs = _118
+2/123: evecs
+2/124: evecs = evecs[: , :2]
+2/125: evecs
+2/126: evecs.shape
+2/127: np.dot(evecs.T, x.T).T
+2/128: evecs.T
+2/129: x
+2/130: evecs
+2/131: x*evecs
+2/132: x.T
+2/133: evecs.T
+2/134: x.T*evecs.T
+2/135: evecs.T*x.T
+2/136: np.dot(evecs.T,x.T).T
+2/137: np.dot(x,evecs)
+2/138: !pwd
+2/139: ls
+2/140: !ls
+2/141: !cat ipython_log.py
+2/142: %logstop
+ 3/1: %logstart ipython_log.py
+ 3/2: _104
+ 3/3: _102
+ 3/4: %hist
+ 3/5: $save something 1-4
+ 3/6: %save something 1-4
+ 3/7: !ls
+ 4/1: %run something.py
+ 4/2: %run plot_cluster_iris.py
+ 4/3: %logstart plot_cluster_iris.py
+ 4/4: %logstop
+ 4/5: %load plot_cluster_iris.py
+ 4/6:
+# %load plot_cluster_iris.py
+#!/usr/bin/python
+
+"""
+=========================================================
+K-means Clustering
+=========================================================
+
+The plots display firstly what a K-means algorithm would yield
+using three clusters. It is then shown what the effect of a bad
+initialization is on the classification process:
+By setting n_init to only 1 (default is 10), the amount of
+times that the algorithm will be run with different centroid
+seeds is reduced.
+The next plot displays what using eight clusters would deliver
+and finally the ground truth.
+
+"""
+print(__doc__)
+
+
+# Code source: Gaël Varoquaux
+# Modified for documentation by Jaques Grobler
+# License: BSD 3 clause
+
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+
+from sklearn.cluster import KMeans
+from sklearn import datasets
+
+np.random.seed(5)
+
+centers = [[1, 1], [-1, -1], [1, -1]]
+iris = datasets.load_iris()
+X = iris.data
+y = iris.target
+
+estimators = {'k_means_iris_3': KMeans(n_clusters=3),
+              'k_means_iris_8': KMeans(n_clusters=8),
+              'k_means_iris_bad_init': KMeans(n_clusters=3, n_init=1,
+                                              init='random')}
+
+
+fignum = 1
+for name, est in estimators.items():
+    fig = plt.figure(fignum, figsize=(4, 3))
+    plt.clf()
+    ax = Axes3D(fig, rect=[0, 0, .95, 1], elev=48, azim=134)
+
+    plt.cla()
+    est.fit(X)
+    labels = est.labels_
+
+    ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=labels.astype(np.float))
+
+    ax.w_xaxis.set_ticklabels([])
+    ax.w_yaxis.set_ticklabels([])
+    ax.w_zaxis.set_ticklabels([])
+    ax.set_xlabel('Petal width')
+    ax.set_ylabel('Sepal length')
+    ax.set_zlabel('Petal length')
+    fignum = fignum + 1
+
+# Plot the ground truth
+fig = plt.figure(fignum, figsize=(4, 3))
+plt.clf()
+ax = Axes3D(fig, rect=[0, 0, .95, 1], elev=48, azim=134)
+
+plt.cla()
+
+for name, label in [('Setosa', 0),
+                    ('Versicolour', 1),
+                    ('Virginica', 2)]:
+    ax.text3D(X[y == label, 3].mean(),
+              X[y == label, 0].mean() + 1.5,
+              X[y == label, 2].mean(), name,
+              horizontalalignment='center',
+              bbox=dict(alpha=.5, edgecolor='w', facecolor='w'))
+# Reorder the labels to have colors matching the cluster results
+y = np.choose(y, [1, 2, 0]).astype(np.float)
+ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=y)
+
+ax.w_xaxis.set_ticklabels([])
+ax.w_yaxis.set_ticklabels([])
+ax.w_zaxis.set_ticklabels([])
+ax.set_xlabel('Petal width')
+ax.set_ylabel('Sepal length')
+ax.set_zlabel('Petal length')
+plt.show()
+ 6/1: import numpy as np
+ 6/2: import np.random
+ 6/3: from np import random
+ 6/4: np.random
+ 6/5: np.random.mtrand
+ 6/6: np.random.mtrand._rand
+ 6/7: np.random.mtrand._rand?
+ 6/8: %run kmean.py
+ 6/9: %run kmean.py
+6/10: %run kmean.py
+ 7/1: import numpy as np
+ 7/2: import pandas as pd
+ 7/3: import setuptools
+ 8/1: import numpy as np
+ 8/2: import panda as pd
+ 8/3: import panda as pd
+ 8/4: import pandas as pd
+ 8/5: import setuptools
+ 8/6: import xgboost.sklearn import XGBClassifier
+ 8/7: from xgboost.sklearn import XGBClassifier
+ 8/8: np.random.seed(0)
+ 8/9: df_train = pd.read_csv('~/Desktop/airbnb/train_users.csv')
+8/10: !pwd
+8/11: !cd ..
+8/12: !cd Desktop
+8/13: !pwd
+8/14: !ls ~/Desktop/airbnb
+8/15: df_train = pd.read_csv('~/Desktop/airbnb/train_users_2.csv')
+8/16: df
+8/17: df_test = pd.read_csv('~/Desktop/airbnb/test_users.csv')
+8/18: df_test?
+8/19: df_test.columns
+8/20: df_train['country_destination']?
+8/21: df_train['country_destination'].values
+8/22: labels = df_train['country_destination'].values
+8/23: df_train = df_train.drop(['country_destination'], axis =1)
+8/24: id_test = df_test['id']
+8/25: piv_train = df_train.shape[0]
+8/26: df_all = pd.concat((df_train, df_test), axis=0, ignore_index=True)
+8/27: df_train.shape[0]
+8/28: df_all = df_all.drop(['id', 'date_first_booking'] , axis = 1)
+8/29: df.isnull().sum()
+8/30: df_all.isnull().sum()
+8/31: df_all['age'].isnull().sum()
+8/32: dac = np.vstack(df_all.date_account_created.astype(str).apply(lambda x : list(map(int, x.split('-')))).values)
+8/33: df_all.date_account_created.astype(str).values
+8/34: df_all.date_account_created.astype(str).apply(lamda x : map(int, x.split('-'))).values
+8/35: df_all.date_account_created.astype(str).apply(lambda x : map(int, x.split('-'))).values
+8/36: df_all.date_account_created.astype(str).apply(lambda x : list(map(int, x.split('-')))).values
+8/37: df_all.date_account_created.astype(str).apply(lambda x : map(int, x.split('-'))).values
+8/38: np.vstack()?
+8/39: np.vstack?
+8/40: dac.shape
+8/41: df_all.date_account_created.astype(str).apply(lambda x : map(int, x.split('-'))).values.shape
+8/42: df_all.date_account_created.astype(str).apply(lambda x : map(int, x.split('-'))).values[0]
+8/43: len(df_all.date_account_created.astype(str).apply(lambda x : map(int, x.split('-'))).values[0])
+8/44: df_all['dac_year'] = dac[:, 0]]
+8/45: df_all['dac_year'] = dac[:, 0]
+8/46: df_all['dac_month'] = dac[:, 1]
+8/47: df_all['dac_day'] = dac[:, 2]
+8/48: df_all.columns
+8/49: df_all['timestamp_first_active']
+8/50: tfa = np.vstack(df_all['timestamp_first_active'].astype(str).apply(lambda x : map(x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]))).values
+8/51: tfa = np.vstack(df_all.timestamp_first_active.astype(str).apply(lambda x : map(x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]))).values
+8/52: tfa = np.vstack(df_all.timestamp_first_active.astype(str).apply(lambda x : map(x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]))).values)
+8/53: df_all.timestamp_first_active.astype(str).apply(lambda x : map(x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]))).values
+8/54: df_all.timestamp_first_active.astype(str).apply(lambda x : map(int, x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]))).values
+8/55: df_all.timestamp_first_active.astype(str).apply(lambda x : map(int, x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14])))
+8/56: df_all.timestamp_first_active.astype(str).apply(lambda x : map(int, x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]))
+8/57: df_all.timestamp_first_active.astype(str).apply(lambda x : map(int, [x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]]))
+8/58: df_all.timestamp_first_active.astype(str).apply(lambda x : map(int, [x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]])).values
+8/59:
+tfa = np.vstack(df_all.timestamp_first_active.astype(str).apply(lambda x: list(map))
+
+
+
+
+}
+8/60: tfa = np.vstack(df_all.timestamp_first_active.astype(str).apply(lambda x : map(int, [x[:4],x[4:6],x[6:8],x[8:10],x[10:12],x[12:14]])).values)
+8/61: df_all['tfa_year'] = tfa[:, 0]
+8/62: df_all['tfa_month'] = tfa[:, 1]
+8/63: df_all['tfa_day'] = tfa[:, 2]
+8/64: df_all = df_all.drop(['timestamp_first_active'], axis=1)
+8/65: av = df_all.age.values
+8/66: av
+8/67: df_all = df_all.fillna(-1)
+8/68: df_all['age'] = np.where(np.logical_or(av < 14, av > 100), -1, av)
+8/69: dump = pd.get_dummies(df_all['gender'],prefix='gender')
+8/70: dump
+8/71: ohe_feats = ['gender', 'signup_method', 'signup_flow', 'language', 'affiliate_channel', 'affiliate_provider', 'first_affiliate_tracked', 'signup_app', 'first_device_type', 'first_browser']
+8/72:
+for f in ohe_feats:
+        df_all_dummy = pd.get_dummies(df_all[f], prefix=f)
+        df_all = df_all.drop([f], axis=1)
+        df_all = pd.concat((df_all, df_all_dummy), axis=1)
+8/73: vals = df_al.values
+8/74: vals = df_all.values
+8/75: vals
+8/76: piv_train
+8/77: X = vals[:piv_train]
+8/78: le = LabelEncoder()
+8/79: y = le.fit_transform(labels)
+8/80: y
+8/81: from sklean.preprocessing import LabelEncoder()
+8/82: from sklean.preprocessing import LabelEncoder
+8/83: import sklean
+8/84: from sklearn import linear_mode
+8/85: from sklearn import linear_model
+8/86: from sklearn.preprocessing import LabelEncoder
+8/87: le = LabelEncoder()
+8/88: y = le.fit_transform(labels)
+8/89: X_test = vals[pivtrain:]
+8/90: X_test = vals[piv_train:]
+8/91: xgb = XGBClassifier(max_depth = 6, learning_rate = 0.3, n_estimators = 25, objective='multi:softprob', subsample = 0.5, colsample_bytree=0.5, seed = 0)
+8/92: xgb.fit(X, y)
+8/93: X
+8/94: df_all
+8/95: df_all = df_all.drop(['date_account_created'], axis = 1)
+8/96: xgb.fit(X,y)
+8/97: df_all = df_all.drop(['date_account_created'], axis = 1)
+8/98: df_all.columns
+8/99: xgb.fit(X,y)
+8/100: df_all.columns
+8/101: X = valvals = df_all.values
+8/102: X = vals[:piv_train]
+8/103: le = LabelEncoder()
+8/104: y = le.fit_transform(labels)
+8/105: X_test = vals[piv_train:]
+8/106: xgb.fit(X,y)
+8/107: X
+8/108: df_all
+8/109: y
+8/110: xgb.fit(X,y)
+8/111: X
+8/112: X = vals[:piv_train]
+8/113: X
+8/114: vals = df_all.values
+8/115: vals
+8/116: df_all.filna(-1)
+8/117: df_all.fillna(-1)
+8/118: df_all = df_all.fillna(-1)
+8/119: df_all = df_all.drop['date_account_created', axis=1]
+8/120: df_all = df_all.drop(['date_account_created'], axis=1)
+8/121: df_all = df_all.drop(['date_account_created'])
+8/122: df_all['date_account_created']
+8/123: df_all
+8/124: vals = df_all.values
+8/125: X = vals[:piv_train]
+8/126: le = LabelEncoder()
+8/127: y = le.fit_transform(labels)
+8/128: X_test = vals[piv_train:]
+8/129: xgb.fit(X,y)
+8/130: y_pred = xgb.predict_proba(X_test)
+8/131: y_pred
+8/132: labels
+8/133: labels.shape[0]
+8/134: y_pred.shape[0]
+8/135: y_pred.shape[1]
+8/136: cts = []
+8/137: cts
+8/138:
+for i in range(len(id_test)):
+        idx = id_test[i]
+        ids += [idx] * 5
+        cts += le.inverse_transform(np.argsort(y_pred[i])[::-1])[:5].tolist()
+8/139: ids = []
+8/140:
+for i in range(len(id_test)):
+        idx = id_test[i]
+        ids += [idx] * 5
+        cts += le.inverse_transform(np.argsort(y_pred[i])[::-1])[:5].tolist()
+8/141: ids
+8/142: cts
+8/143: sub = pd.DataFrame(np.column_stack((ids, cts)), columns=['id','country'])
+8/144: sub.to_csv('sub.csv', index=False)
+8/145: !pwd
+8/146: y
+8/147: max(y)
+8/148: min(y)
+8/149: xgboost
+8/150: xgb.fit(X, y, eval_metric='ndcg')
+8/151: y_pred = xgb.predict_proba(X_test)
+8/152: #Taking the 5 classes with highest probabilities
+8/153: ids = []  #list of ids
+8/154: cts = []  #list of countries
+8/155:
+for i in range(len(id_test)):
+        idx = id_test[i]
+        ids += [idx] * 5
+        cts += le.inverse_transform(np.argsort(y_pred[i])[::-1])[:5].tolist()
+8/156: #Generate submission
+8/157: sub = pd.DataFrame(np.column_stack((ids, cts)), columns=['id', 'country'])
+8/158: sub.to_csv('sub.csv',index=False)
+8/159: xgb.evals_result()
+8/160: xgb.evals_result()
+8/161: xgb?
+8/162: !pwd
+8/163: sub.to_csv('sub.csv',index=False)
+ 9/1: import pandas as pd
+ 9/2:
+nodedata = [{'subid' : '1', 'age': 75, 'fdg':1.78, 'name' : 'Mike'},
+{'subid' : '2', 'age': 33, 'fdg':1.56,'name' : 'June'},
+{'subid' : '3', 'age': 32, 'fdg':1.11,'name' : 'Jane'},
+{'subid' : '4', 'age': 77, 'fdg':1.02,'name' : 'Fred'},
+{'subid' : '5', 'age': 26, 'fdg':4.33,'name' : 'Alex'},
+{'subid' : '6', 'age': 54, 'fdg':2.11,'name' : 'Thom'},
+{'subid' : '7', 'age': 24, 'fdg':5.22,'name' : 'Codu'}]
+ 9/3: nodes = pd.DataFrame(nodedata)
+ 9/4:
+edgedata = [{'source' : '1', 'dest': '2', 'weight':1, 'rating':2},
+            {'source' : '1', 'dest': '3', 'weight':1, 'rating':1},
+            {'source' : '1', 'dest': '5', 'weight':1, 'rating':6},
+            {'source' : '1', 'dest': '6', 'weight':1, 'rating':8},
+            {'source' : '6', 'dest': '7', 'weight':1, 'rating':3},
+            {'source' : '5', 'dest': '3', 'weight':1, 'rating':4},
+            {'source' : '4', 'dest': '3', 'weight':1, 'rating':9},
+            {'source' : '2', 'dest': '4', 'weight':1, 'rating':2}]
+ 9/5: edges = pd.DataFrame(edge data)
+ 9/6: edges = pd.DataFrame(edgedata)
+ 9/7: edges.columns
+ 9/8: !pwd
+ 9/9: nodedata.to_csv('~/Downloads/nodes.csv')
+9/10: nodes.to_csv('~/Downloads/nodes.csv')
+9/11: !cat nodes.csv
+9/12: nodes.to_csv('~/Downloads/nodes.csv', indexd=False)
+9/13: !cat nodes.csv
+9/14: node.to_csv('~/Downloads/nodes.csv', index=False)
+9/15: nodes.to_csv('~/Downloads/nodes.csv', index=False)
+9/16: !cat nodes.csv
+9/17: import pathlib
+9/18: import os, urlparse
+9/19: p = urlparse.urlparse('/User/apple/Downloads/nodes.csv')
+9/20: p
+9/21: os.path.abspath(os.path.join(p.netlob, p.path))
+9/22: os.path.abspath(os.path.join(p.netloc, p.path))
+9/23: p = urlparse.urlparse('~/Downloads/nodes.csv')
+9/24: p
+9/25: os.path.abspath(os.path.join(p.netloc, p.path))
+9/26: import urlparse, urllib
+9/27:
+def path2url(path):
+        return urlparse.urljoin(
+          'file:', urllib.pathname2url(path))
+9/28: path2url(~/Downloads/nodes.csv)
+9/29: path2url('~/Downloads/nodes.csv')
+9/30: path2url('/User/apple/Downloads/nodes.csv')
+9/31: !pwd
+9/32: !cat file:///User/apple/Downloads/nodes.csv
+9/33: !cat /User/apple/Downloads/nodes.csv
+9/34: !pwd
+9/35: edges
+9/36: edges.to_csv('~/Downloads/edges.csv', index=False)
+9/37: !cat edges
+9/38: !cat edges.csv
+9/39: import os
+9/40: os.getcwd
+9/41: os.getcwd()
+9/42: os.getcwd() + os.path + 'x.csv'
+9/43: str(os.getcwd() + os.path)
+9/44: os.getcwd()
+9/45: os.sep
+9/46: os.getcwd() + os.sep + 'x.csv'
+11/1: !wget
+11/2: !curl -o cardata.csv http://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data
+11/3: !ls
+11/4: !cat cardata.csv
+11/5: import numpy as np
+11/6: import matplotlib.patches as mpatches
+11/7: import os
+11/8: import math as m
+11/9: import matplotlib.pyplot as plt
+11/10: from params import attributes, bin_types
+11/11: import itertools
+11/12: import pandas as pd
+11/13: from pandas.tools.plotting import parallel_coordinates
+11/14: import pdb
+11/15: from matplotlib.backends.backend_pdf import PdfPages
+11/16: import random
+11/17: from sklearn.decomposition import PCA as pca
+11/18: from sklearn import manifold
+11/19: from sklearn.metrics import euclidean_distances
+11/20: from sklearn.linear_model import LinearRegression
+11/21: from sklearn import preprocessing as prep
+11/22: from sklearn.cross_validation import KFold
+11/23: from sklearn.metrics import mean_absolute_error,mean_squared_error
+11/24: from scipy.stats import norm, shapiro
+11/25: from sklearn.neighbors import KNeighborsRegressor
+11/26: data = pd.read_csv('')
+11/27: !ls
+11/28: dtset = pd.read_csv()
+11/29: dtset = pd.read_csv('cardata.csv')
+11/30: dtset.columns
+11/31: dtset = pd.read_csv('cardata.csv', header= False)
+11/32: dtset = pd.read_csv?
+11/33: dtset = pd.read_csv('cardata.csv', header=0)
+11/34: dtset.columns
+11/35: !open cardata.csv
+11/36: !vi cardata.csv
+11/37: dtset = pd.read_csv('cardata.csv', header=0)
+11/38: dtset = pd.read_csv('cardata.csv')
+11/39: dtset.columns
+11/40: dtset['buying']
+11/41: dtset['safety']
+11/42: dtset[0]
+11/43: dtset[:][0]
+11/44: dtset[0][:]
+11/45: dtset.iloc[1]
+11/46: dtset.iloc[2]
+11/47: from sklearn import preprocessing
+11/48: from sklearn import preprocessing as prep
+11/49: cols = ['buying','persons','high']
+11/50: !vi cardata.csv
+12/1: !vi cardata.csv
+12/2: import numpy as np
+12/3: import matplotlib.patches as mpatches
+12/4: import os
+12/5: import math as m
+12/6: import matplotlib.pyplot as plt
+12/7: from params import attributes, bin_types
+12/8: import itertools
+12/9: import pandas as pd
+12/10: from pandas.tools.plotting import parallel_coordinates
+12/11: import pdb
+12/12: from matplotlib.backends.backend_pdf import PdfPages
+12/13: import random
+12/14: from sklearn.decomposition import PCA as pca
+12/15: from sklearn import manifold
+12/16: from sklearn.metrics import euclidean_distances
+12/17: from sklearn.linear_model import LinearRegression
+12/18: from sklearn import preprocessing as prep
+12/19: from sklearn.cross_validation import KFoldfrom scipy.stats import norm, shapiro
+12/20: from sklearn.neighbors import KNeighborsRegressor
+12/21: from scipy.stats import norm, shapiro
+12/22: from sklearn.cross_validation import KFold
+12/23: pd.read_csv('cardata.csv')
+12/24: data = pd.read_csv('cardata.csv')
+12/25: data
+12/26: data[0]
+12/27: data.iloc[0]
+12/28: data['buying']
+12/29: data[0,:]
+12/30: data[[0],:]
+12/31: data.loc[[0],:]
+12/32: maints = []
+12/33: [x for x in data['main'] if x != 'vhigh']
+12/34: [x for x in data['maint'] if x != 'vhigh']
+12/35: df['maint'].unique
+12/36: df['maint'].unique()
+12/37: data['maint'].unique()
+12/38: data.unique
+12/39: data.unique()
+12/40: data.ravel()unique()
+12/41: data.ravel().unique()
+12/42: data.values
+12/43: data.values.ravel().unique
+12/44: data.values.ravel().unique()
+12/45: Series(data.values.ravel()).unique
+12/46: Series(data.values.ravel()).unique()
+12/47: pd.Series(data.values.ravel()).unique()
+12/48: data.columns
+12/49: data.columns?
+12/50: data[data.columns.data]
+12/51: data.loc(data.columns.data)
+12/52: data.loc(data.columns.data).data
+12/53: data.loc(data.columns.data)?
+12/54: data.loc(data.columns.data)
+12/55: data[data.columns.data]
+12/56: data[:, data.columns.data]
+12/57: data.columns.data
+12/58: data.columns
+12/59: data.columns.data
+12/60: list(data.columns.data)
+12/61: data.columns?
+12/62: data.columns.data()
+12/63: data.columns.data
+12/64: list(data.columns)
+12/65: data[list(data.columns)]
+12/66: data[list(data.columns)].uniques
+12/67: data[list(data.columns)].unique()
+12/68: cols = list(data.columns)
+12/69: from sklearn import preprocessing
+12/70: from sklearn import preprocessing as prep
+12/71: prep.HotEncoder
+12/72: prep.OneHotEncoder
+12/73: maints = list(data['maint'].unique())
+12/74: maints
+12/75: m = {}
+12/76: m['vhigh'] = 4
+12/77: m['high'] = 3
+12/78: m['med'] = 2
+12/79: m['low'] = 1
+12/80: m
+12/81: prep.OneHotEncoder
+12/82: p = prep.OneHotEncoder(n='auto',categorical_features = m)
+12/83: p = prep.OneHotEncoder(n_values='auto',categorical_features = m)
+12/84: p.fit(data['main'])
+12/85: p.fit(data['maint'])
+12/86: m
+12/87: p = prep.OneHotEncoder(n_values='auto',categorical_features = m, dtype=string)
+12/88: p = prep.OneHotEncoder(n_values='auto',categorical_features = m, dtype=str)
+12/89: p.fit(data['maint'])
+12/90: p = prep.OneHotEncoder(n_values='auto',active_features_ = m, dtype=str)
+12/91: p = prep.OneHotEncoder(n_values='auto',categorical_features = m)
+12/92: p.active_features_
+12/93: p = prep.OneHotEncoder()
+12/94: p.fit(data['maint'])
+12/95: p = prep.OneHotEncoder(dtype=str)
+12/96: p.fit(data['maint'])
+12/97: m = list(data['maint'].columns)
+12/98: m = list(data['maint'].unique())
+12/99: p = prep.OneHotEncoder(categorical_attributes = m)
+12/100: p = prep.OneHotEncoder(categorical_attribute = m)
+12/101: p = prep.OneHotEncoder(categorical_features = m)
+12/102: p.fit(data['maint'])
+12/103: type('1232')
+12/104: p = prep.OneHotEncoder(categorical_features = m, dtype = str)
+12/105: p.fit(data['maint'])
+12/106: p
+12/107: p = prep.LabelEncoder
+12/108: p = prep.LabelEncoder()
+12/109: prep.fit()
+12/110: data['maint'].unique()
+12/111: col = ['low','med','high','vhigh']
+12/112: prep.fit(col)
+12/113: p.fit(col)
+12/114: data['maint'][0]
+12/115: x = p.transform(data['maint'])
+12/116: x[0]
+13/1: import numpy as np
+13/2: import matplotlib.patches as mpatches
+13/3: import os
+13/4: import math as m
+13/5: import matplotlib.pyplot as plt
+13/6: from params import attributes, bin_types
+13/7: import itertools
+13/8: import pandas as pd
+13/9: from pandas.tools.plotting import parallel_coordinates
+13/10: import pdb
+13/11: from matplotlib.backends.backend_pdf import PdfPages
+13/12: import random
+13/13: from sklearn.decomposition import PCA as pca
+13/14: from sklearn import manifold
+13/15: from sklearn.metrics import euclidean_distances
+13/16: from sklearn.linear_model import LinearRegression
+13/17: from sklearn import preprocessing as prep
+13/18: from sklearn.cross_validation import KFold
+13/19: from sklearn.metrics import mean_absolute_error,mean_squared_error
+13/20: from scipy.stats import norm, shapiro
+13/21: from sklearn.neighbors import KNeighborsRegressor
+13/22: np.ndarray([2,2])
+13/23: np.array([2,2])
+13/24: v1 = np.array([2,2,3])
+13/25: v2 = np.array([1,1,0])
+13/26: v1.shape
+13/27: np.expand_dim(v1, axis=0)
+13/28: np.expand_dims(v1, axis=0)
+13/29: v1 = np.expand_dims(v1, axis=0)
+13/30: v1
+13/31: v1.shape
+13/32: v2 = np.expand_dims(v2, axis = 0)
+13/33: [x for x in v1]
+13/34: x,y for x,y in v1
+13/35: [x,y for x,y in v1]
+13/36: [x for x  in v1]
+13/37: x for x in v1
+13/38: [x for x in v1]
+13/39: v1.shape == v2.shape
+13/40:
+for x, y  in np.nditer(v1,v2):
+    print "%d:%d" % (x,y)
+13/41:
+for x, y  in np.nditer(v1,v2):
+    print "%d:%d" % (x,y)
+13/42: for x,y in np.nditer([v1,v2])
+13/43:
+for x,y in np.nditer([v1,v2]):
+    print x
+    print y
+13/44:
+def l2distance(v1, v2):
+        if v1.shape != v2.shape:
+                raise ValueError('Shape of vectors doesn not match')
+13/45:     dist = 0
+13/46:
+    for x, y  in np.nditer([v1,v2]):
+            dist += (x - y) ** 2
+13/47:     return dist ** 0.5
+13/48:
+def l2distance(v1, v2):
+        if v1.shape != v2.shape:
+                raise ValueError('Shape of vectors doesn not match')
+        dist = 0
+        for x, y  in np.nditer([v1,v2]):
+                dist += (x - y) ** 2
+            return dist ** 0.5
+13/49: %load ~/PycharmProjects/appsofdataanalysis/kNN.py
+13/50:
+# %load ~/PycharmProjects/appsofdataanalysis/kNN.py
+__author__ = 'nhan'
+
+import numpy as np
+
+def l2distance(v1, v2):
+    if v1.shape != v2.shape:
+        raise ValueError('Shape of vectors doesn not match')
+
+    dist = 0
+    for x, y  in np.nditer([v1,v2]):
+        dist += (x - y) ** 2
+    return dist ** 0.5
+
+def kNN():
+    pass
+13/51: l2distance(v1,v2)
+13/52: v1
+13/53: v2
+13/54: 11 ** 0.5
+13/55: np.arrange(1,10,3)
+13/56: np.arange(1,10,3)
+13/57: np.arange(1,10,3)
+13/58: np.arange(1,10,3)
+13/59: np.arange(1,50,3)
+13/60: np.arange(1,50,3).shape
+13/61: np.arange(1,52,3).shape
+13/62: np.arange(1,60,3).shape
+13/63: np.arange(1,60,3).shape(5,4)
+13/64: np.arange(1,60,3).shape([5,4])
+13/65: np.arange(1,60,3).reshape(5,4)
+13/66: v1 = np.arange(1,60,3).reshape(5,4)
+13/67: v2 = np.array([[1,4,5,6]])
+13/68: v2
+13/69: v2.shape
+13/70: np.vstack?
+13/71: v2 * 2
+13/72: v2 / 2
+13/73: np(v2, 2,axis = 0)
+13/74: np.repeat(v2, 2, axis = 0)
+13/75: l2distance(v1, np.repeat(v2,5, axis =0))
+13/76:
+for row in v2 :
+    print row
+13/77:
+fow row in v2:
+    print row
+13/78:
+fow row in v2:
+    print row
+13/79:
+for row in v2: 
+    print row
+13/80: v2
+13/81:
+for r1, r2 in (v1, np.repeat(v2,5, axis =0)):
+    print r1
+    print r2
+13/82:
+for r1, r2 in (v1, np.repeat(v2,5, axis =0)):
+    print r1
+    print r2
+13/83: v1
+13/84:
+for r1, r2 in (v1, np.repeat(v2,5, axis =0)):
+    print r1
+    print r2
+13/85:
+for row in r2:
+    print type(r2)
+13/86:
+for row in v2:
+    print type(row)
+13/87:
+for i in v2.shape[0]:
+    print v2[i, :]
+13/88:
+for i in v2.shape[0]:
+    print v2[i, :]
+13/89:
+for i in range(0,v2.shape[0]):
+    print v2[0, :]
+13/90: v2
+13/91: 1
+13/92: v1
+13/93: v1[[0,2],:]
+13/94: indices
+13/95: indices = np.array([1,2])
+13/96: indices
+13/97: v1[indices, "]
+13/98: v1[indices, :]
+13/99: dict = []
+13/100: dict['a']['freq'] = 1
+13/101: dict = {}
+13/102: dict['a']['1'] = 2
+13/103: v = np.array([])
+13/104: v.appen(1)
+13/105: v.append(1)
+13/106: dict = {}
+13/107: dict['a'] = (1,2)
+13/108: dict['b'] = (1,3)
+13/109: dict['c'] = (2,3)
+13/110: import operator
+13/111: sort(dict, operator.getitem(1,2))
+13/112: sort(dict, operator.getitem(1,2))
+13/113: sorted(dict, operator.getitem(1,2))
+13/114: sorted(dict.items(),key= operator.getitem(1,2))
+13/115: sorted(dict.items(),key= operator.itemgetter(1,2))
+13/116: sorted(dict.items(),key= operator.itemgetter(0,1))
+13/117: dict['d'] = (2,4)
+13/118: sorted(dict.items(),key= operator.itemgetter(0,1))
+13/119: dict.items
+13/120: dict.items()
+13/121: dict.items()[0]
+13/122: sorted(dict.items(),key= operator.itemgetter(1))
+13/123: dict['e'] = (4,1)
+13/124: sorted(dict.items(),key= operator.itemgetter(1))
+13/125: sorted(dict.items(),key= operator.itemgetter(1,2))
+13/126: sorted(dict.items(),key= lambda x : x[1][0], -x[1][1])
+13/127: sorted(dict.items(),key= lambda x : (x[1][0], -x[1][1]))
+13/128: sorted(dict.items(),key= lambda x : (x[1][0], -x[1][1]), reverse = True)
+13/129: range(2)
+13/130: x = [0,1,2,3,4,5]
+13/131: x [:1]
+13/132: x [1:2]
+13/133: 10 / 3
+13/134: 10 * 1.0 / 3
+13/135: xrange(@)
+13/136: xrange(2)
+13/137: range(1,2)
+13/138: range(1,6)
+13/139: 1*1
+13/140:
+for i in range(6):
+    print i * 1
+    print (i + 1) * 1
+13/141: [1,2,3] + [1,2]
+13/142: np.ndarray([1,2,3])
+13/143: np.array([1,2,3])
+13/144: x = np.array([1,2,3])
+13/145: x
+13/146: y = np.array([1,2])
+13/147: x+ y
+13/148: x = []
+13/149: x.append([1,2])
+13/150: x
+13/151: x.append([1,2])
+13/152: x
+13/153: %load ~/PycharmProject/appsofdataanalysis/KFold.py
+13/154: %load ~/PycharmProject/appsofdataanalysis/KFold.py
+13/155: %load ~/PycharmProjects/appsofdataanalysis/KFold.py
+13/156:
+# %load ~/PycharmProjects/appsofdataanalysis/KFold.py
+__author__ = 'nhan'
+import numpy as np
+import random
+
+class KFold:
+    def __init__(self, n, n_folds=2, shuffle=False):
+        if not isinstance(n, int) or n is None:
+            raise TypeError('n must be integer and not None')
+
+        if n_folds > n:
+            raise ArithmeticError('number of fold must not be ' +
+                                  'larger than number of instances')
+
+        self.n = n
+        self.n_folds = n_folds
+
+    def get_indices(self):
+        x = range(self.n)
+        if self.shuffle:
+            random.shuffle(x)
+
+        fold_len = self.n / self.n_folds
+
+        train = []
+        test = []
+
+        for i in xrange(self.n_folds):
+            # index from i * n_folds -> (i + 1 ) * n_folds
+                test.append(x[i * self.n_folds, (i + 1) * self.n_folds])
+                train.append(x[:i * self.n_folds] if i > 0 else [] +
+                                                                x[(i + 1) * self.n_folds : ] if i < self.n_folds - 1 else [])
+
+        return train, test
+13/157: kf = KFold(6, n_folds = 6)
+13/158: train, test = kf.get_indices()
+13/159:
+# %load ~/PycharmProjects/appsofdataanalysis/KFold.py
+__author__ = 'nhan'
+import numpy as np
+import random
+
+class KFold:
+    def __init__(self, n, n_folds=2, shuffle=False):
+        if not isinstance(n, int) or n is None:
+            raise TypeError('n must be integer and not None')
+
+        if n_folds > n:
+            raise ArithmeticError('number of fold must not be ' +
+                                  'larger than number of instances')
+
+        self.n = n
+        self.n_folds = n_folds
+
+    def get_indices(self):
+        x = range(self.n)
+        if self.shuffle:
+            random.shuffle(x)
+
+        fold_len = self.n / self.n_folds
+
+        train = []
+        test = []
+
+        for i in xrange(self.n_folds):
+            # index from i * n_folds -> (i + 1 ) * n_folds
+                test.append(x[i * self.n_folds, (i + 1) * self.n_folds])
+                train.append(x[:i * self.n_folds] if i > 0 else [] +
+                                                                x[(i + 1) * self.n_folds : ] if i < self.n_folds - 1 else [])
+
+        return train, test
+    return dist ** 0.5
+13/160: %load ~/PycharmProject/appsofdataanalysis/KFold.py
+13/161: %load ~/PycharmProject/appsofdatanalysis/KFold.py
+13/162: %load ~/PycharmProjects/appsofdatanalysis/KFold.py
+13/163: %load ~/PycharmProjects/appsofdataanalysis/KFold.py
+13/164:
+# %load ~/PycharmProjects/appsofdataanalysis/KFold.py
+__author__ = 'nhan'
+import numpy as np
+import random
+
+class KFold:
+    def __init__(self, n, n_folds=2, shuffle=False):
+        if not isinstance(n, int) or n is None:
+            raise TypeError('n must be integer and not None')
+
+        if n_folds > n:
+            raise ArithmeticError('number of fold must not be ' +
+                                  'larger than number of instances')
+
+        self.n = n
+        self.n_folds = n_folds
+        self.shuffle = shuffle
+
+    def get_indices(self):
+        x = range(self.n)
+        if self.shuffle:
+            random.shuffle(x)
+
+        fold_len = self.n / self.n_folds
+
+        train = []
+        test = []
+
+        for i in xrange(self.n_folds):
+            # index from i * n_folds -> (i + 1 ) * n_folds
+                test.append(x[i * self.n_folds, (i + 1) * self.n_folds])
+                train.append(x[:i * self.n_folds] if i > 0 else [] +
+                                                                x[(i + 1) * self.n_folds : ] if i < self.n_folds - 1 else [])
+
+        return train, test
+13/165: kf = KFold(6, n_folds = 6)
+13/166: train, test = kf.get_indices()
+13/167: x = np.array([1,2])
+13/168: x
+13/169: len(x)
+13/170: x = np.array([[1,2]])
+13/171: len(x)
+14/1: import numpy as np
+14/2: %load Score
+14/3:
+# %load Score
+__author__ = 'nhan'
+from numpy import nditer
+import numpy as np
+from sklearn import preprocessing as prep
+class Score:
+    def __init__(self):
+        pass
+
+    #numpy array
+    def misclassification_rate(self, y_pred, y_true):
+        mis_rate = 0.0
+        for x, y in nditer(y_pred, y_true):
+            mis_rate +=  1.0 if x != y else 0.0
+
+        return mis_rate / len(y_pred)
+
+    def cost_matrix(self, y_pred, y_true, labels):
+        #encode label -> num values
+        encoder = prep.LabelEncoder()
+        encoder.fit(labels)
+
+        table = np.zeros((len(labels), len(labels)), dtype = np.int)
+
+        y_pred_num = encoder.transform(y_pred)
+        y_true_num = encoder.transform(y_true)
+
+        #cross product
+        for y_t in y_true_num:
+            for y_p in y_pred_num:
+                table[y_t, y_p] += 1
+                print y_t + "  "+ y_p
+        print table
+14/4: y_pred = np.array(['a', 'b' , 'c' , 'd' , 'a'])
+14/5: y_trye = np.array(['a', 'c', 'd', 'e', 'f'])
+14/6: labels = np.array(['a','b','c','d','e','f'])
+14/7: s = Score()
+14/8: s.cost_matrix(y_pred, y_trye, labels)
+14/9: s = Score()
+14/10: %load Score
+14/11:
+# %load Score
+__author__ = 'nhan'
+from numpy import nditer
+import numpy as np
+from sklearn import preprocessing as prep
+class Score:
+    def __init__(self):
+        pass
+
+    #numpy array
+    def misclassification_rate(self, y_pred, y_true):
+        mis_rate = 0.0
+        for x, y in nditer(y_pred, y_true):
+            mis_rate +=  1.0 if x != y else 0.0
+
+        return mis_rate / len(y_pred)
+
+    def cost_matrix(self, y_pred, y_true, labels):
+        #encode label -> num values
+        encoder = prep.LabelEncoder()
+        encoder.fit(labels)
+
+        table = np.zeros((len(labels), len(labels)), dtype = np.int)
+
+        y_pred_num = encoder.transform(y_pred)
+        y_true_num = encoder.transform(y_true)
+
+        #cross product
+        for y_t in y_true_num:
+            for y_p in y_pred_num:
+                table[y_t, y_p] += 1
+                print str(y_t) + "  "+ str(y_p)
+        print table
+14/12: s = Score()
+14/13: s
+14/14: s.cost_matrix(y_pred, y_trye, labels)
+14/15: %load Score
+14/16:
+# %load Score
+__author__ = 'nhan'
+from numpy import nditer
+import numpy as np
+from sklearn import preprocessing as prep
+
+
+class Score:
+    def __init__(self):
+        pass
+
+    # numpy array
+    def misclassification_rate(self, y_pred, y_true):
+        mis_rate = 0.0
+        for x, y in nditer(y_pred, y_true):
+            mis_rate += 1.0 if x != y else 0.0
+
+        return mis_rate / len(y_pred)
+
+    def cost_matrix(self, y_pred, y_true, labels):
+        # encode label -> num values
+        encoder = prep.LabelEncoder()
+        encoder.fit(labels)
+
+        table = np.zeros((len(labels), len(labels)), dtype=np.int)
+
+        y_pred_num = encoder.transform(y_pred)
+        y_true_num = encoder.transform(y_true)
+
+        # cross product
+        for y_t, y_p in nditer([y_true_num, y_pred_num]):
+            table[y_t, y_p] += 1
+            print str(y_t) + "  " + str(y_p)
+        print table
+14/17: s = Score()
+14/18: s.cost_matrix(y_pred, y_trye, labels)
+14/19: y_trye
+13/172: data
+13/173: panda
+13/174: pd
+13/175: pd.read_csv('~/PycharmProjects/appsofdataanalysis/cardata.csv')
+13/176: data.colmns
+13/177: data.colmuns
+13/178: data = pd.read_csv('~/PycharmProjects/appsofdataanalysis/cardata.csv')
+13/179: data.columns
+13/180:
+for col in data.columns :
+    print ocl
+13/181:
+for col in data.columns :
+    print col
+13/182: col_dict = {}
+13/183:
+for col in data.columns:
+    col_dict[col] = data[col].unique()
+13/184: col_dict
+13/185: prep
+13/186: encoder
+13/187: encoder = prep.LabelEncoder()
+13/188: encoder.fit(coldict['buying'])
+13/189: encoder.fit(col_dict['buying'])
+13/190: encoder.transform(data['buying'])
+14/20: from numpy import array
+14/21:
+data = {'buying': array(['vhigh', 'high', 'med', 'low'], dtype=object),
+ 'class': array(['unacc', 'acc', 'vgood', 'good'], dtype=object),
+ 'doors': array(['2', '3', '4', '5more'], dtype=object),
+ 'lug_boot': array(['small', 'med', 'big'], dtype=object),
+ 'maint': array(['vhigh', 'high', 'med', 'low'], dtype=object),
+ 'persons': array(['2', '4', 'more'], dtype=object),
+ 'safety': array(['low', 'med', 'high'], dtype=object)}
+14/22: data
+   1: import config.py
+   2: import config
+   3: import KFold
+   4: from KFold import KFold
+   5: import kNN
+   6: from kNN import *
+   7: from Score import *
+   8: from config import *
+   9: data = pd.read_csv('cardata.csv')
+  10: import pandas as pd
+  11: import pandas as pd
+  12: data
+  13: data = pd.read_csv('cardata.csv')
+  14: data
+  15:
+for col in data.columns:
+    dict[col]
+  16: from sklearn import preprocessing as prep
+  17: encoder = prep.LabelEncoder()
+  18:
+for col in data.columns:
+
+    
+    
+    
+    ;
+    x = 1
+  19: ndata = DataFrame()
+  20: from pandas import DataFrame
+  21:
+ndata = DataFrame(0
+)
+  22: ndata = DataFrame()
+  23:
+for col in data.cols:
+    encoder.fit(uniques[col])
+    ndata[col] = encoder.transform(data[col])
+  24:
+for col in data.columns:
+    encoder.fit(uniques[col])
+    ndata[col] = encoder.transform(data[col])
+  25: ndata
+  26: len(ndata)
+  27: len(ndata)
+  28: kf = KFold(n = 1728, n_folds = 10, shuffle = True)
+  29: kf.get_indices()
+  30: %load KFold
+  31:
+# %load KFold
+__author__ = 'nhan'
+import numpy as np
+import random
+import pdb
+
+
+class KFold:
+    def __init__(self, n, n_folds=2, shuffle=False):
+        if not isinstance(n, int) or n is None:
+            raise TypeError('n must be integer and not None')
+
+        if n_folds > n:
+            raise ArithmeticError('number of fold must not be ' +
+                                  'larger than number of instances')
+
+        self.n = n
+        self.n_folds = n_folds
+        self.shuffle = shuffle
+
+    def get_indices(self):
+        x = range(self.n)
+        if self.shuffle:
+            random.shuffle(x)
+
+        fold_len = self.n / self.n_folds
+
+        train = []
+        test = []
+        for i in range(self.n_folds):
+            # index from i * n_folds -> (i + 1 ) * n_folds
+            test.append(x[i * fold_len : (i + 1) * fold_len] if i < self.n_folds - 1 else x[i * fold_len : ])
+            train.append(x[:i * fold_len] if i > 0 else [] +
+                                                            x[(i + 1) * fold_len : ] if i < self.n_folds - 1 else [])
+
+        return train, test
+  32: kf = KFold(n = 1728, n_folds = 10 , shuffle = True)
+  33: kf.get_indices()
+  34:
+train, test = kf.get_indices(0
+)
+  35: train, test = kf.get_indices()
+  36: len(train)
+  37: nn = NearestNeighbors(n_neighbors = 2)
+  38: nn.fit(train[0], test[0])
+  39: ndata[['maint']]
+  40: %load config.py
+  41:
+# %load config.py
+__author__ = 'nhan'
+from numpy import array
+
+
+# iterated through dataframe to get uniques dictionary
+uniques = {'buying': array(['low', 'med', 'high', 'vhigh'], dtype=object),
+ 'class': array(['unacc', 'acc', 'vgood', 'good'], dtype=object),
+ 'doors': array(['2', '3', '4', '5more'], dtype=object),
+ 'lug_boot': array(['small', 'med', 'big'], dtype=object),
+ 'maint': array(['low', 'med', 'high', 'vhigh' ], dtype=object),
+ 'persons': array(['2', '4', 'more'], dtype=object),
+ 'safety': array(['low', 'med', 'high'], dtype=object)}
+
+features = ['buying', 'safety', 'door', 'lug_boot', 'maint', 'persons']
+target_feature = ['class']
+  42: ndata[features]
+  43: %load config.py
+  44:
+# %load config.py
+__author__ = 'nhan'
+from numpy import array
+
+
+# iterated through dataframe to get uniques dictionary
+uniques = {'buying': array(['low', 'med', 'high', 'vhigh'], dtype=object),
+ 'class': array(['unacc', 'acc', 'vgood', 'good'], dtype=object),
+ 'doors': array(['2', '3', '4', '5more'], dtype=object),
+ 'lug_boot': array(['small', 'med', 'big'], dtype=object),
+ 'maint': array(['low', 'med', 'high', 'vhigh' ], dtype=object),
+ 'persons': array(['2', '4', 'more'], dtype=object),
+ 'safety': array(['low', 'med', 'high'], dtype=object)}
+
+features = ['buying', 'safety', 'doors', 'lug_boot', 'maint', 'persons']
+target_feature = ['class']
+ndata[features]
+  45: ndata[target_feature]
+  46: nn.fit(ndata[features], ndata[target_feature])
+  47: nn.predict(ndata[features])
+  48: ndata[features][1 , :]
+  49: type(ndata[feature])
+  50: type(ndata[features])
+  51: ndata[features].as_matrix()
+  52: ndata[features].values
+  53: ndata[features].columns
+  54: nn.predict(ndata[features].values)
+  55: nn.predict(ndata[features].as_matrix())
+  56: nn.fit(ndata[features].as_matrix(), ndata[target_feature].as_matrix())
+  57: nn.predict(ndata[features].as_matrix())
+  58: %load kNN
+  59:
+# %load kNN
+__author__ = 'nhan'
+
+import numpy as np
+import operator
+
+
+def l2distance(v1, v2):
+    if v1.shape != v2.shape:
+        raise ValueError('Shape of vectors does not match')
+
+    dist = 0
+    for x, y in np.nditer([v1, v2]):
+        dist += (x - y) ** 2
+
+    return dist ** 0.5
+
+# Classification kNN
+class NearestNeighbors:
+    def __init__(self, n_neighbors=2):
+        self.n_neighbors = 2
+
+    def fit(self, X, y):
+        self.X = X
+        self.y = y
+
+    def predict(self, x):
+        results = []
+        # Iterate through the input matrix and compute result for each row
+        for i in range(x.shape[0]):
+            results.append(self.elect(self.getTopK(x[i , :])))
+
+        return results
+
+    def elect(self, labels, top_dists):
+        # Count Frequency and Sum Distance of each label.
+        freq = {}
+        for i in range(len(labels)):
+            if labels[i] not in dict:
+                freq[labels[i]] = (1, top_dists[i])
+            else:
+                freq[labels[i]][0] += 1
+                freq[labels[i]][1] += top_dists[i]
+
+        # 1/ Sort by Frequency
+        # 2/ If 2 labels have same frequency, favor the one with lower Sum Distance
+        results = sorted(freq.items(), key=lambda x: (x[1][0], -x[1][1]), reverse=True)
+        return results[0][0]
+
+    def getTopK(self, x):
+        # Calculate distance vector
+        dist_vec = []
+        for i in range(0, self.X.shape[0]):
+            dist = l2distance(x, self.X[i, :])
+            dist_vec.append(dist)
+        dist_vec = np.array(dist_vec)
+
+        # Sort and get k labels from indices
+        indices = np.argsort(dist_vec)[:self.k - 1]
+        top_labels = self.y[indices, :]
+        top_dists = dist_vec[indices]
+
+        return top_labels, top_dists
+  60: k = NearestNeighbors(n_neighbors = 2)
+  61: k.fit(ndata[features].as_matrix(), ndata[target_feature].as_matrix())
+  62: k.predict(ndata[features].as_matrix())
+  63: %load kNN
+  64:
+# %load kNN
+__author__ = 'nhan'
+
+import numpy as np
+import operator
+
+
+def l2distance(v1, v2):
+    if v1.shape != v2.shape:
+        raise ValueError('Shape of vectors does not match')
+
+    dist = 0
+    for x, y in np.nditer([v1, v2]):
+        dist += (x - y) ** 2
+
+    return dist ** 0.5
+
+# Classification kNN
+class NearestNeighbors:
+    def __init__(self, n_neighbors=2):
+        self.n_neighbors = 2
+
+    def fit(self, X, y):
+        self.X = X
+        self.y = y
+
+    def predict(self, x):
+        results = []
+        # Iterate through the input matrix and compute result for each row
+        for i in range(x.shape[0]):
+            results.append(self.elect(self.getTopK(x[i , :])))
+
+        return results
+
+    def elect(self, labels, top_dists):
+        # Count Frequency and Sum Distance of each label.
+        freq = {}
+        for i in range(len(labels)):
+            if labels[i] not in dict:
+                freq[labels[i]] = (1, top_dists[i])
+            else:
+                freq[labels[i]][0] += 1
+                freq[labels[i]][1] += top_dists[i]
+
+        # 1/ Sort by Frequency
+        # 2/ If 2 labels have same frequency, favor the one with lower Sum Distance
+        results = sorted(freq.items(), key=lambda x: (x[1][0], -x[1][1]), reverse=True)
+        return results[0][0]
+
+    def getTopK(self, x):
+        # Calculate distance vector
+        dist_vec = []
+        for i in range(0, self.X.shape[0]):
+            dist = l2distance(x, self.X[i, :])
+            dist_vec.append(dist)
+        dist_vec = np.array(dist_vec)
+
+        # Sort and get k labels from indices
+        indices = np.argsort(dist_vec)[:self.n_neighbors - 1]
+        top_labels = self.y[indices, :]
+        top_dists = dist_vec[indices]
+
+        return top_labels, top_dists
+  65: k = NearestNeighbors(n_neighbors = 2)
+  66: k.fit(ndata[features].as_matrix(), ndata[target_feature].as_matrix())
+  67: k.predict(ndata[features].as_matrix())
+  68: %load kNN
+  69:
+# %load kNN
+__author__ = 'nhan'
+
+import numpy as np
+import operator
+
+
+def l2distance(v1, v2):
+    if v1.shape != v2.shape:
+        raise ValueError('Shape of vectors does not match')
+
+    dist = 0
+    for x, y in np.nditer([v1, v2]):
+        dist += (x - y) ** 2
+
+    return dist ** 0.5
+
+# Classification kNN
+class NearestNeighbors:
+    def __init__(self, n_neighbors=2):
+        self.n_neighbors = 2
+
+    def fit(self, X, y):
+        self.X = X
+        self.y = y
+
+    def predict(self, x):
+        results = []
+        # Iterate through the input matrix and compute result for each row
+        for i in range(x.shape[0]):
+            top_labels, top_dists = self.getTopK(x[i , :])
+            results.append(self.elect(top_dists=top_dists, labels=top_labels))
+
+        return results
+
+    def elect(self, top_dists, labels):
+        # Count Frequency and Sum Distance of each label.
+        freq = {}
+        for i in range(len(labels)):
+            if labels[i] not in dict:
+                freq[labels[i]] = (1, top_dists[i])
+            else:
+                freq[labels[i]][0] += 1
+                freq[labels[i]][1] += top_dists[i]
+
+        # 1/ Sort by Frequency
+        # 2/ If 2 labels have same frequency, favor the one with lower Sum Distance
+        results = sorted(freq.items(), key=lambda x: (x[1][0], -x[1][1]), reverse=True)
+        return results[0][0]
+
+    def getTopK(self, x):
+        # Calculate distance vector
+        dist_vec = []
+        for i in range(0, self.X.shape[0]):
+            dist = l2distance(x, self.X[i, :])
+            dist_vec.append(dist)
+        dist_vec = np.array(dist_vec)
+
+        # Sort and get k labels from indices
+        indices = np.argsort(dist_vec)[:self.n_neighbors - 1]
+        top_labels = self.y[indices, :]
+        top_dists = dist_vec[indices]
+
+        return top_labels, top_dists
+  70: k = NearestNeighbors(n_neighbors = 2)
+  71: k.fit(ndata[features].as_matrix(), ndata[target_feature].as_matrix())
+  72: k.predict(ndata[features].as_matrix())
+  73: %load kNN
+  74:
+# %load kNN
+__author__ = 'nhan'
+
+import numpy as np
+import operator
+
+
+def l2distance(v1, v2):
+    if v1.shape != v2.shape:
+        raise ValueError('Shape of vectors does not match')
+
+    dist = 0
+    for x, y in np.nditer([v1, v2]):
+        dist += (x - y) ** 2
+
+    return dist ** 0.5
+
+# Classification kNN
+class NearestNeighbors:
+    def __init__(self, n_neighbors=2):
+        self.n_neighbors = 2
+
+    def fit(self, X, y):
+        self.X = X
+        self.y = y
+
+    def predict(self, x):
+        results = []
+        # Iterate through the input matrix and compute result for each row
+        for i in range(x.shape[0]):
+            top_labels, top_dists = self.getTopK(x[i , :])
+            results.append(self.elect(top_dists=top_dists, labels=top_labels))
+
+        return results
+
+    def elect(self, top_dists, labels):
+        # Count Frequency and Sum Distance of each label.
+        freq = {}
+        for i in range(len(labels)):
+            if labels[i, 0] not in dict:
+                freq[labels[i, 0]] = (1, top_dists[i])
+            else:
+                freq[labels[i, 0]][0] += 1
+                freq[labels[i, 0]][1] += top_dists[i]
+
+        # 1/ Sort by Frequency
+        # 2/ If 2 labels have same frequency, favor the one with lower Sum Distance
+        results = sorted(freq.items(), key=lambda x: (x[1][0], -x[1][1]), reverse=True)
+        return results[0][0]
+
+    def getTopK(self, x):
+        # Calculate distance vector
+        dist_vec = []
+        for i in range(0, self.X.shape[0]):
+            dist = l2distance(x, self.X[i, :])
+            dist_vec.append(dist)
+        dist_vec = np.array(dist_vec)
+
+        # Sort and get k labels from indices
+        indices = np.argsort(dist_vec)[:self.n_neighbors - 1]
+        top_labels = self.y[indices, :]
+        top_dists = dist_vec[indices]
+
+        return top_labels, top_dists
+  75: k = NearestNeighbors(n_neighbors = 2)
+  76: k.fit(ndata[features].as_matrix(), ndata[target_feature].as_matrix())
+  77: k.predict(ndata[features].as_matrix())
+  78: %load kNN
+  79:
+# %load kNN
+__author__ = 'nhan'
+
+import numpy as np
+import operator
+
+
+def l2distance(v1, v2):
+    if v1.shape != v2.shape:
+        raise ValueError('Shape of vectors does not match')
+
+    dist = 0
+    for x, y in np.nditer([v1, v2]):
+        dist += (x - y) ** 2
+
+    return dist ** 0.5
+
+# Classification kNN
+class NearestNeighbors:
+    def __init__(self, n_neighbors=2):
+        self.n_neighbors = 2
+
+    def fit(self, X, y):
+        self.X = X
+        self.y = y
+
+    def predict(self, x):
+        results = []
+        # Iterate through the input matrix and compute result for each row
+        for i in range(x.shape[0]):
+            top_labels, top_dists = self.getTopK(x[i , :])
+            results.append(self.elect(top_dists=top_dists, labels=top_labels))
+
+        return results
+
+    def elect(self, top_dists, labels):
+        # Count Frequency and Sum Distance of each label.
+        freq = {}
+        for i in range(len(labels)):
+            if labels[i, 0] not in freq:
+                freq[labels[i, 0]] = (1, top_dists[i])
+            else:
+                freq[labels[i, 0]][0] += 1
+                freq[labels[i, 0]][1] += top_dists[i]
+
+        # 1/ Sort by Frequency
+        # 2/ If 2 labels have same frequency, favor the one with lower Sum Distance
+        results = sorted(freq.items(), key=lambda x: (x[1][0], -x[1][1]), reverse=True)
+        return results[0][0]
+
+    def getTopK(self, x):
+        # Calculate distance vector
+        dist_vec = []
+        for i in range(0, self.X.shape[0]):
+            dist = l2distance(x, self.X[i, :])
+            dist_vec.append(dist)
+        dist_vec = np.array(dist_vec)
+
+        # Sort and get k labels from indices
+        indices = np.argsort(dist_vec)[:self.n_neighbors - 1]
+        top_labels = self.y[indices, :]
+        top_dists = dist_vec[indices]
+
+        return top_labels, top_dists
+  80: k = NearestNeighbors(n_neighbors = 2)
+  81: k.fit(ndata[features].as_matrix(), ndata[target_feature].as_matrix())
+  82: k.predict(ndata[features].as_matrix())
+  83: pred = k.predict(ndata[features].as_matrix())
+  84: pred.shape
+  85: len(prep)
+  86: len(pred)
+  87: y
+  88: ndata[target_feature].values
+  89: ndata[target_feature].values.
+  90: ndata[target_feature].values.T
+  91: ndata[target_feature].values.T[0]
+  92: s = Score()
+  93: s.misclassification_rate(np.array(pred), ndata[target_feature].values.T[0])
+  94: %load Score
+  95:
+# %load Score
+__author__ = 'nhan'
+from numpy import nditer
+import numpy as np
+from sklearn import preprocessing as prep
+
+
+class Score:
+    def __init__(self):
+        pass
+
+    # numpy array
+    def misclassification_rate(self, y_pred, y_true):
+        mis_rate = 0.0
+        for x, y in nditer([y_pred, y_true]):
+            mis_rate += 1.0 if x != y else 0.0
+
+        return mis_rate / len(y_pred)
+
+    def cost_matrix(self, y_pred, y_true, labels = None):
+        # encode label -> num values
+        if labels is not None:
+            encoder = prep.LabelEncoder()
+            encoder.fit(labels)
+            y_pred_num = encoder.transform(y_pred)
+            y_true_num = encoder.transform(y_true)
+        else:
+            y_pred_num = y_pred
+            y_true_num = y_true
+
+        # cross product
+        table = np.zeros((len(labels), len(labels)), dtype=np.int)
+        for y_t, y_p in nditer([y_true_num, y_pred_num]):
+            table[y_t, y_p] += 1
+
+        return table
+  96: s = Score()
+  97: s.misclassification_rate(np.array(pred), ndata[target_feature].values.T[0])
+  98: %history -g -f histlog
