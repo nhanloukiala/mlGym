@@ -43,7 +43,7 @@ matrix_test = df_test.as_matrix()
 matrix = df.as_matrix()
 data, labels = np.hsplit(matrix, [matrix.shape[1] - 1])
 test_data, test_labels = np.hsplit(matrix_test, [matrix_test.shape[1] - 1])
-test_labels = test_labels.T[0].astype(int).tolist()
+test_labels = test_labels.T[0].astype(int)
 general_matrix = np.vstack((data, test_data))
 
 def Encoding(data, general_matrix=None):
@@ -78,7 +78,9 @@ def Encoding(data, general_matrix=None):
 data = Encoding(data, general_matrix)
 test_data = Encoding(test_data, general_matrix)
 
-p = pca(n_components=50)
+p = pca(n_components=2)
+pca_cal(standardize_dataset(data), labels.T[0].tolist(), data, title = "PCA with z-score normalization on training set")
+pca_cal(standardize_dataset(test_data), test_labels, test_data, title = "PCA with z-score normalization on test set")
 data[:, 4:] = standardize_dataset(data[:, 4:])
 test_data[:, 4:] = standardize_dataset(test_data[:, 4:])
 
@@ -91,11 +93,10 @@ total_cv_error = []
 total_test_error = []
 confusion_matx = []
 f1score = []
-for k in range(1, 15, 3):
+for k in range(1, 100, 5):
     cv_error = []
     test_error = []
     nn = Pipeline([
-            # ('feature_selection', SelectFromModel(ExtraTreesClassifier())),
             ('feature_selection', SelectFromModel(LinearSVC(penalty="l2"))),
             ('classification', KNeighborsClassifier(n_neighbors=k, metric='manhattan'))
         ])
@@ -107,8 +108,6 @@ for k in range(1, 15, 3):
         cv_labels = labels[test[i]]
 
         #######TRAIN#####
-        # nn = KNeighborsClassifier(n_neighbors=k, metric='manhattan')
-
         # convert from panda frame to numpy matrix
         nn.fit(train_data, train_labels.T[0].tolist())
         # Scoring
@@ -128,12 +127,12 @@ for k in range(1, 15, 3):
     f1score.append([f1_score(test_labels, test_predicted, average='micro'), k , 'Micro'])
     f1score.append([f1_score(test_labels, test_predicted, average='macro'), k , 'Macro'])
 
-    total_cv_error.append([np.mean(np.abs(cv_error)), k, 'Train'])
+    total_cv_error.append([np.mean(np.abs(cv_error)), k, 'Cross Validation Set'])
     total_test_error.append([np.mean(np.abs(test_error)), k, 'Test'])
 
 np_stage = np.vstack((np.array(total_cv_error), np.array(total_test_error)))
 f1score = np.array(f1score)
-line_plot(data=np_stage ,title = "K Neighbors vs  Misclassification Rate among Train/Test sets", x_title ="K Neighbors", y_title="Misclassification Rate", legend_label="Test / Train set",group_labels=np.unique(np_stage[:, 2]))
+line_plot(data=np_stage ,title = "K Neighbors vs  Misclassification Rate among Train/Test sets", x_title ="K Neighbors", y_title="Misclassification Rate", legend_label="Test / CV set",group_labels=np.unique(np_stage[:, 2]))
 line_plot(data=f1score ,title = "K Neighbors vs  F1 score on test set", x_title ="K Neighbors", y_title="F1 score Rate", legend_label="Macro /  Micro",group_labels=f1score[:, 2])
 
 
