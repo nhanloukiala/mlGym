@@ -17,7 +17,6 @@ def batch_l2distance(mat1 , mat2):
 
     return np.sum((mat1 - mat2) ** 2, axis =1) ** 0.5
 
-# Classification kNN
 class NearestNeighbors:
     def __init__(self, n_neighbors=2):
         self.n_neighbors = n_neighbors
@@ -36,6 +35,21 @@ class NearestNeighbors:
         return results
 
     def elect(self, top_dists, labels):
+        pass
+
+    def getTopK(self, x):
+        # Calculate distance vector
+        dist_vec = batch_l2distance(self.X, np.tile(x, (self.X.shape[0] , 1)))
+
+        # Sort and get k labels from indices
+        indices = np.argsort(dist_vec)[:self.n_neighbors]
+        top_labels = self.y[indices, :]
+        top_dists = dist_vec[indices]
+
+        return top_labels, top_dists
+
+class NearestNeighborsClassifier(NearestNeighbors):
+    def elect(self, top_dists, labels):
         # Count Frequency and Sum Distance of each label.
         freq = {}
         for i in range(len(labels)):
@@ -50,13 +64,7 @@ class NearestNeighbors:
         results = sorted(freq.items(), key=lambda x: (x[1][0], -x[1][1]), reverse=True)
         return results[0][0]
 
-    def getTopK(self, x):
-        # Calculate distance vector
-        dist_vec = batch_l2distance(self.X, np.tile(x, (self.X.shape[0] , 1)))
 
-        # Sort and get k labels from indices
-        indices = np.argsort(dist_vec)[:self.n_neighbors]
-        top_labels = self.y[indices, :]
-        top_dists = dist_vec[indices]
-
-        return top_labels, top_dists
+class NearestNeighborsRegressor(NearestNeighbors):
+    def elect(self, top_dists, labels):
+        return np.mean(labels)
