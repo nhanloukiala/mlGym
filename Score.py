@@ -12,8 +12,6 @@ class Score:
         if y_pred.ndim < 2:
             np.expand_dims(y_pred, axis=1)
 
-        # import pdb;pdb.set_trace()
-
         mis_rate = 0.0
 
         for x, y in nditer([y_pred, y_true], ['refs_ok']):
@@ -25,15 +23,15 @@ class Score:
         return 1 - self.misclassification_rate(y_pred, y_true)
 
     def c_score(self, y_pred, y_true):
-        n = 0.0
+        n = 0.
         h_num = 0.0
         for i in range(len(y_true)):
             t = y_true[i]
             p = y_pred[i]
 
-            for j in range(i+1, len(y_true)):
+            for j in range(i + 1, len(y_true)):
                 nt = y_true[j]
-                np = y_pred[i]
+                np = y_pred[j]
 
                 if t != nt:
                     n += 1
