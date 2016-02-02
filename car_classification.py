@@ -5,7 +5,7 @@ from config import *
 import pandas as pd
 from pandas import DataFrame
 from KFold import KFold
-from kNN import NearestNeighbors
+from kNN import NearestNeighborsClassifier
 from Score import *
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -20,19 +20,19 @@ for col in data.columns:
     encoder.fit(uniques[col])
     ndata[col] = encoder.transform(data[col])
 
-#Simple Explorartory Analysis
-#Bar plots
+# Simple Explorartory Analysis
+# Bar plots
 for col in data.columns:
-    agg =  data.groupby([col, 'class']).count()
+    agg = data.groupby([col, 'class']).count()
     sns.set_style("whitegrid")
-    ax = sns.barplot(x=agg.ix[:,[0]].index.values, y=agg.ix[:, [0]].values.T[0])
+    ax = sns.barplot(x=agg.ix[:, [0]].index.values, y=agg.ix[:, [0]].values.T[0])
     plt.title("Distribution of " + col)
     plt.show()
 
-#PCA
-pca_cal(standardize_dataset(ndata.as_matrix()), data['class'], data.columns, title = "PCA with normalization")
+# PCA
+pca_cal(standardize_dataset(ndata.as_matrix()), data['class'], data.columns, title="PCA with normalization")
 
-#Seperate dataset to test and train set
+# Seperate dataset to test and train set
 kf = KFold(n=len(ndata), n_folds=10, shuffle=True)
 train, test = kf.get_indices()
 s = Score()
@@ -44,12 +44,12 @@ for k in range(1, 200, 3):
     train_error = []
     test_error = []
     for i in range(10):
-        print "round %d %d" % (k,i)
+        print "round %d %d" % (k, i)
         train_data = ndata.ix[train[i]]
         test_data = ndata.ix[test[i]]
 
         #######TRAIN#####
-        nn = NearestNeighbors(n_neighbors=k)
+        nn = NearestNeighborsClassifier(n_neighbors=k)
 
         # convert from panda frame to numpy matrix
         nn.fit(train_data[features].as_matrix(), train_data[target_feature].as_matrix())
@@ -68,7 +68,6 @@ for k in range(1, 200, 3):
 
 np_stage = np.vstack((np.array(total_train_error), np.array(total_test_error)))
 
-
 plot_data = DataFrame()
 plot_data['x'] = np_stage[:, 1].astype(int)
 plot_data['y'] = np_stage[:, 0]
@@ -78,8 +77,8 @@ plot_data['Train=1/Test=0'] = np_stage[:, 2].astype(int)
 plot_data.to_csv('plot.csv')
 
 sns.set(style="whitegrid")
-g = sns.pointplot(x="x", y="y", hue="Train=1/Test=0",data=plot_data, label = 'Train = 1.0 / Test = 0.0')
-plt.title("K Neighbors vs  Misclassification Rate among Train/Test sets", fontsize = 25)
-plt.ylabel("Misclassification Rate" , fontsize = 12)
-plt.xlabel("K Neighbors" , fontsize = 12)
+g = sns.pointplot(x="x", y="y", hue="Train=1/Test=0", data=plot_data, label='Train = 1.0 / Test = 0.0')
+plt.title("K Neighbors vs  Misclassification Rate among Train/Test sets", fontsize=25)
+plt.ylabel("Misclassification Rate", fontsize=12)
+plt.xlabel("K Neighbors", fontsize=12)
 plt.show()

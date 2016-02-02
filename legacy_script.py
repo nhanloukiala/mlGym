@@ -10,6 +10,23 @@ from sklearn.linear_model import LinearRegression
 from sklearn import preprocessing as prep
 from sklearn.cross_validation import KFold
 from scipy.stats import norm
+import pandas as pd
+from pandas import *
+import seaborn as sns
+
+def line_plot(data ,title = "", x_title ="", y_title="", legend_label="",group_labels=None):
+    plot_data = DataFrame()
+
+    plot_data['x'] = data[:, 1].astype(int)
+    plot_data['y'] = data[:, 0].astype(float)
+
+    plot_data[legend_label] = data[:, 2]
+    sns.set(style="whitegrid")
+    g = sns.pointplot(x="x", y="y", hue=legend_label, data=plot_data, hue_order=np.unique(plot_data[legend_label]))
+    plt.title(title, fontsize=14)
+    plt.ylabel(y_title, fontsize=12)
+    plt.xlabel(x_title, fontsize=12)
+    plt.show()
 
 def scatterplot_matrix(data, attNames, **kwargs):
     rows, atts = data.shape
@@ -85,6 +102,7 @@ def scatter(x, y, color, **kwargs):
 
 def plot(trained, labels, attNames, **kwargs):
     r_color = get_color_list()
+
     colors = [r_color[str(x)] for x in labels]
     scatter(trained[:, 0], trained[: , 1], color = colors, **kwargs)
     # merge data with colors
