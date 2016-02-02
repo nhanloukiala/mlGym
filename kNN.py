@@ -11,11 +11,13 @@ def l2distance(v1, v2):
 
     return np.sum((v1 - v2) ** 2) ** 0.5
 
-def batch_l2distance(mat1 , mat2):
+
+def batch_l2distance(mat1, mat2):
     if mat1.shape != mat2.shape:
         raise ValueError('Shape of vectors does not match')
 
-    return np.sum((mat1 - mat2) ** 2, axis =1) ** 0.5
+    return np.sum((mat1 - mat2) ** 2, axis=1) ** 0.5
+
 
 class NearestNeighbors:
     def __init__(self, n_neighbors=2):
@@ -29,17 +31,16 @@ class NearestNeighbors:
         results = []
         # Iterate through the input matrix and compute result for each row
         for i in range(x.shape[0]):
-            top_labels, top_dists = self.getTopK(x[i , :])
+            top_labels, top_dists = self.getTopK(x[i, :])
             results.append(self.elect(top_dists=top_dists, labels=top_labels))
-
         return results
 
-    def elect(self, top_dists, labels):
+    def elect(self, top_dists, labels, axis=0):
         pass
 
     def getTopK(self, x):
         # Calculate distance vector
-        dist_vec = batch_l2distance(self.X, np.tile(x, (self.X.shape[0] , 1)))
+        dist_vec = batch_l2distance(self.X, np.tile(x, (self.X.shape[0], 1)))
 
         # Sort and get k labels from indices
         indices = np.argsort(dist_vec)[:self.n_neighbors]
@@ -48,8 +49,13 @@ class NearestNeighbors:
 
         return top_labels, top_dists
 
+class NearestNeighborsRegressor(NearestNeighbors):
+    def elect(self, top_dists, labels, axis=0):
+        return np.mean(labels, axis=0)
+
+
 class NearestNeighborsClassifier(NearestNeighbors):
-    def elect(self, top_dists, labels):
+    def elect(self, top_dists, labels, axis=0):
         # Count Frequency and Sum Distance of each label.
         freq = {}
         for i in range(len(labels)):
@@ -64,7 +70,3 @@ class NearestNeighborsClassifier(NearestNeighbors):
         results = sorted(freq.items(), key=lambda x: (x[1][0], -x[1][1]), reverse=True)
         return results[0][0]
 
-
-class NearestNeighborsRegressor(NearestNeighbors):
-    def elect(self, top_dists, labels):
-        return np.mean(labels)
