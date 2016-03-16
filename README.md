@@ -1,4 +1,4 @@
-# The repository includes code for course Applications of Data Analysis: 
+# The repository includes code tutorial for Classical Applications of Data Analysis
 <b>cyber_attack_classification.py</b> : Code with the dataset of KDD cup 99 </br>
 <b>car_classication.py </b>: Code with the problems of the Car Quality dataset from UCI. </br>
 <b> kNN.py </b>: self-implemented K Nearest Neighbors classifier. </br>
